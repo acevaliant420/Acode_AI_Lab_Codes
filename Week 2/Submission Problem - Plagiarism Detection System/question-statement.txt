@@ -1,0 +1,67 @@
+The goal of this lab is to implement a plagiarism detection system using the A* search algorithm applied to text alignment. The system will identify similar or identical sequences of text between two documents by aligning their sentences or paragraphs and detecting potential plagiarism.
+
+Background:
+Plagiarism detection involves comparing two documents to identify shared sequences of words or phrases that might indicate copying. Text alignment is a common approach to this, where one text is aligned with another based on similarity measures. The A* search algorithm, a best-first search, can be applied to efficiently find the optimal alignment between two texts.
+
+Prerequisites:
+Basic understanding of the A* search algorithm.
+Knowledge of string matching algorithms and similarity measures (e.g., Levenshtein distance).
+Python programming skills.
+
+A* Search Overview:
+A* search is a graph traversal algorithm that finds the shortest path from a start node to a goal node. It combines the strengths of Dijkstra’s algorithm and greedy best-first search by using a heuristic to estimate the cost of reaching the goal. The A* algorithm uses the following cost function:  f(n)=g(n)+h(n)
+	Where:
+	g(n) is the cost of the path from the start node to node n.
+	h(n) is the estimated cost from node nn to the goal (heuristic function).
+
+Problem Definition:
+Given two text documents, the task is to align their sentences and detect plagiarism using A* search. The alignment should minimize the edit distance (or maximize similarity) between corresponding sentences.
+
+Approach:
+	State Representation:
+		Each state represents a partial alignment between the sentences of the two documents.
+		A state includes the current position in both documents and the accumulated cost (edit distance).
+	Initial State:
+		The initial state corresponds to the start of both documents (i.e., first sentence of each document).
+	Goal State:
+		The goal state is reached when all sentences in both documents are aligned.
+	Transition Function:
+		Possible transitions include aligning the current sentences, skipping a sentence in one document, or skipping sentences in both.
+	Cost Function (g(n)):
+		The cost is the edit distance between the aligned sentences so far.
+	Heuristic Function (h(n)):
+		The heuristic estimates the remaining alignment cost, such as the sum of minimum possible edit distances between remaining sentences.
+	Search Algorithm:
+		Use A* search to explore the state space and find the optimal alignment with the minimum cost.
+
+Lab Instructions:
+	Implement Text Preprocessing:
+		Tokenize the input documents into sentences.
+		Normalize the text (e.g., convert to lowercase, remove punctuation).
+	Define the A* Search Function:
+		Implement the A* search algorithm with the state representation, transition function, cost function, and heuristic.
+	Compute Edit Distance:
+		Implement the Levenshtein distance function to compute the cost of aligning two sentences.
+	Perform Alignment:
+		Apply the A* search algorithm to align the sentences from the two documents.
+	Detect Plagiarism:
+		After alignment, identify pairs of sentences with a low edit distance as potential plagiarism.
+	Evaluate the System:
+		Use test cases to evaluate the accuracy and efficiency of your plagiarism detection system.
+
+Test Cases:
+	Test Case 1: Identical Documents
+		Input: Two identical documents.
+		Expected Output: All sentences should align perfectly, with zero edit distance.
+	
+	Test Case 2: Slightly Modified Document
+		Input: One document with minor modifications (e.g., synonyms, word order changes) compared to the other.
+		Expected Output: Most sentences should align with a low edit distance.
+	
+	Test Case 3: Completely Different Documents
+		Input: Two completely different documents.
+		Expected Output: High edit distances for most alignments, indicating no plagiarism.
+	
+	Test Case 4: Partial Overlap
+		Input: Two documents with some overlapping content.
+		Expected Output: The overlapping content should align with a low edit distance, indicating potential plagiarism.
