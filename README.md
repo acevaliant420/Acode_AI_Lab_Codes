@@ -1,4 +1,4 @@
-# Lab Report (Week 1 - Week 5)
+# Lab Report (Week 1 - Week 5) [Total Problems: 9]
 This repository was developed as part of the CS367 curriculum at IIIT Vadodara - International Campus Diu, documenting progress and work throughout the initial five weeks.  
 Created by [@Tejas Pakhle](https://github.com/Codezyman) [202211061], [@Rajat Kumar Thakur](https://github.com/acevaliant420) [202211070], [@Tanay Patel](https://github.com/Tanay-cmd) [202211094], [@Abhi Tundiya](https://github.com/Abhi_T212) [202211095]
 
